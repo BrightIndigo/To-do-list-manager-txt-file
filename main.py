@@ -1,10 +1,13 @@
 num_of_task = 0
+completed = []
 def add():
     print("add task content: ")
     task_text = input(">")
+    completed.append("uncompleted")
     with open('list.txt', 'a') as file:
-        file.write(f"{num_of_task} {task_text}, \n")
+        file.write(f"{num_of_task} {task_text} {completed[num_of_task-1]}, \n")
 
+    print(completed)
 
 def read():
     with open('list.txt', 'r') as file:
@@ -42,6 +45,7 @@ while True:
     print("1 - add a task to list")
     print("2 - read a list of tasks")
     print("3 - delete a task")
+    print("4 - mark as completed")
     decision = input(">")
 
     if decision == "1":
